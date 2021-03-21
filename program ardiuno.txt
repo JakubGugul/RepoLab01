@@ -1,0 +1,44 @@
+//Jakub Guguł
+//70500
+int ledflag = 0;
+void setup() 
+{
+	pinMode(8, OUTPUT);
+  	pinMode(7, INPUT_PULLUP);
+  	digitalWrite(8, LOW);
+}
+
+void blink()
+{
+  	
+	while(ledflag == 0)
+    {
+    digitalWrite(8, LOW);
+    delay(300);
+    digitalWrite(8, HIGH);
+    delay(300);
+    if (digitalRead(7) == LOW)
+    {
+      ledflag = 0;
+    }
+    }
+  
+    
+}
+
+
+void loop() 
+{
+	if (digitalRead(7) == LOW) 
+    {
+      if (ledflag == 0)
+        {
+          
+          blink();         
+        }
+       else{
+    	ledflag=0;
+        digitalWrite(8, LOW);
+       }
+}
+    }  	
